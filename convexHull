@@ -1,0 +1,31 @@
+ public void convexHull(Point[] points)
+    {
+        int n = points.length;
+        /** if less than 3 points return **/        
+        if (n < 3) 
+            return;     
+        int[] next = new int[n];
+        Arrays.fill(next, -1);
+ 
+        /** find the leftmost point **/
+        int leftMost = 0;
+        for (int i = 1; i < n; i++)
+            if (points[i].x < points[leftMost].x)
+                leftMost = i;
+        int p = leftMost, q;
+        /** iterate till p becomes leftMost **/
+        do
+        {
+            /** wrapping **/
+            q = (p + 1) % n;
+            for (int i = 0; i < n; i++)
+              if (CCW(points[p], points[i], points[q]))
+                 q = i;
+ 
+            next[p] = q;  
+            p = q; 
+        } while (p != leftMost);
+ 
+        /** Display result **/
+        display(points, next);
+    }
