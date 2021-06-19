@@ -1,0 +1,7 @@
+  public void display(Point[] points, int[] next)
+    {
+        System.out.println("\nConvex Hull points : ");
+        for (int i = 0; i < next.length; i++)
+            if (next[i] != -1)
+               System.out.println("("+ points[i].x +", "+ points[i].y +")");
+    }
