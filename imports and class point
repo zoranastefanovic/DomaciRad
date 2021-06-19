@@ -1,0 +1,8 @@
+import java.util.Scanner;
+import java.util.Arrays;
+ 
+
+class Point
+{
+    int x, y;
+}
